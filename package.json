@@ -1,0 +1,26 @@
+{
+  "name": "preact-video-player",
+  "version": "1.0.0",
+  "description": "A Video.js player wrapped with Preact",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yonbeastie/preact-video-player.git"
+  },
+  "author": "Brian Nelson <yonbeastie@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yonbeastie/preact-video-player/issues"
+  },
+  "homepage": "https://github.com/yonbeastie/preact-video-player#readme",
+  "devDependencies": {
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "preact": "^8.2.7"
+  }
+}
