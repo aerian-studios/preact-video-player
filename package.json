@@ -2,9 +2,15 @@
   "name": "preact-video-player",
   "version": "1.0.0",
   "description": "A Video.js player wrapped with Preact",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "scripts": {
+    "build": "webpack",
+    "lint": "eslint --ext .jsx --ext .js src/",
+    "precommit": "lint-staged",
     "test": "npm run test"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
@@ -17,10 +23,27 @@
   },
   "homepage": "https://github.com/yonbeastie/preact-video-player#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-preact": "^1.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.5",
+    "prettier": "1.12.1",
     "typescript": "^2.8.3",
-    "webpack": "^4.6.0"
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   },
   "dependencies": {
-    "preact": "^8.2.7"
+    "preact": "^8.2.7",
+    "video.js": "^6.8.0"
   }
 }
