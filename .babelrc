@@ -1,6 +1,10 @@
 {
+  "sourceMaps": true,
   "presets": [
     ["latest", { "modules": false }],
     "preact"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
   ]
 }

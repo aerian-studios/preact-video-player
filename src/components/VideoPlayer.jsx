@@ -1,22 +1,29 @@
 import { h, Component } from 'preact'
+import PropTypes from 'proptypes'
 import videojs from 'video.js'
 
+/* eslint-disable import/no-webpack-loader-syntax,import/no-unresolved */
+import '!style-loader!css-loader!video.js/dist/video-js.css'
+
 export default class VideoPlayer extends Component {
-  constructor() {
-    super()
+  constructor(...props) {
+    super(...props)
+    this.handleReady = this.handleReady.bind(this)
     this.handleRef = this.handleRef.bind(this)
   }
 
   componentDidMount() {
-    this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
-      console.log('onPlayerReady', this)
-    })
+    this.player = videojs(this.videoNode, this.props.options, this.handleReady)
   }
 
   componentWillUnmount() {
     if (this.player) {
       this.player.dispose()
     }
+  }
+
+  handleReady() {
+    console.log('ready', this.player)
   }
 
   handleRef(node) {
@@ -30,12 +37,21 @@ export default class VideoPlayer extends Component {
   render() {
     return (
       <div>
-        <p>hello world</p>
         <div data-vjs-player>
-          hi
-          <video ref={this.handleRef} className="video-js" track="test" />
+          <video ref={this.handleRef} className="video-js" />
         </div>
       </div>
     )
   }
+}
+
+VideoPlayer.propTypes = {
+  options: PropTypes.shape({
+    autoplay: PropTypes.bool,
+    controls: PropTypes.bool,
+    sources: PropTypes.array({
+      src: PropTypes.string,
+      type: PropTypes.string
+    })
+  }).isRequired
 }
