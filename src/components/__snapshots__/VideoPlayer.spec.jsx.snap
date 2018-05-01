@@ -5,7 +5,13 @@ exports[`<VideoPlayer /> should render 1`] = `
 -------
 <div>
   <div data-vjs-player={true}>
-    <video class=\\"video-js\\"></video>
+    <video
+      class=\\"video-js\\"
+      height=\\"480\\"
+      id=\\"test-player\\"
+      width=\\"640\\"
+    >
+    </video>
   </div>
 </div>
 "

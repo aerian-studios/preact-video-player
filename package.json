@@ -66,11 +66,15 @@
     "webpack-dev-server": "^3.1.3"
   },
   "dependencies": {
+    "loadjs": "^3.5.4",
     "preact": "^8.2.7",
     "preact-compat": "^3.18.0",
     "promise-polyfill": "^7.1.2",
     "proptypes": "^1.1.0",
-    "video.js": "^6.8.0"
+    "video.js": "^6.8.0",
+    "videojs-contrib-ads": "^6.2.1",
+    "videojs-contrib-hls": "^5.14.1",
+    "videojs-ima": "^1.3.0"
   },
   "jest": {
     "setupFiles": ["./jest-setup.js"],

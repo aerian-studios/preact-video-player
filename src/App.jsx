@@ -1,3 +1,4 @@
+import loadjs from 'loadjs'
 import { h, render } from 'preact'
 import VideoPlayer from './components/VideoPlayer'
 
@@ -6,11 +7,12 @@ const videoJsOptions = {
   controls: true,
   sources: [
     {
-      src:
-        'https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4',
-      type: 'video/mp4'
+      src: 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8',
+      type: 'application/x-mpegURL'
     }
   ]
 }
 
-render(<VideoPlayer options={videoJsOptions} />, document.body)
+loadjs('//imasdk.googleapis.com/js/sdkloader/ima3.js', () => {
+  render(<VideoPlayer options={videoJsOptions} />, document.body)
+})
