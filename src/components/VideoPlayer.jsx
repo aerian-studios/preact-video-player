@@ -1,5 +1,6 @@
+// @flow
+
 import { h, Component } from 'preact'
-import PropTypes from 'proptypes'
 import videojs from 'video.js'
 import 'videojs-contrib-ads'
 import 'videojs-contrib-hls'
@@ -9,6 +10,14 @@ import 'videojs-ima'
 import '!style-loader!css-loader!video.js/dist/video-js.css'
 import '!style-loader!css-loader!videojs-ima/dist/videojs.ima.css'
 import '!style-loader!css-loader!videojs-contrib-ads/dist/videojs-contrib-ads.css'
+
+export type VideoPlayerProps = {
+  options: {
+    autoplay?: boolean,
+    controls?: boolean,
+    sources?: Array<{ src: string, type: string }>
+  }
+}
 
 export default class VideoPlayer extends Component {
   constructor(...props) {
@@ -26,6 +35,8 @@ export default class VideoPlayer extends Component {
       this.player.dispose()
     }
   }
+
+  props: VideoPlayerProps
 
   handleReady() {
     this.player.ima({
@@ -58,15 +69,4 @@ export default class VideoPlayer extends Component {
       </div>
     )
   }
-}
-
-VideoPlayer.propTypes = {
-  options: PropTypes.shape({
-    autoplay: PropTypes.bool,
-    controls: PropTypes.bool,
-    sources: PropTypes.array({
-      src: PropTypes.string,
-      type: PropTypes.string
-    })
-  }).isRequired
 }
