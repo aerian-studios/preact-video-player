@@ -5,6 +5,8 @@
     "preact"
   ],
   "plugins": [
+    "syntax-flow",
+    "transform-flow-strip-types",
     "transform-object-rest-spread"
   ]
 }
